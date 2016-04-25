@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Matthias Kadenbach <matthias.kadenbach@gmail.com>
+MAINTAINER Matthias Kadenbach <matthias.kadenbach@gmail.com>, Umair Malik
 
 RUN echo 'deb http://deb.torproject.org/torproject.org trusty main' | tee /etc/apt/sources.list.d/torproject.list
 RUN gpg --keyserver keys.gnupg.net --recv 886DDD89
@@ -23,6 +23,6 @@ RUN chmod +x /usr/local/bin/start.rb
 
 ADD haproxy.cfg.erb /usr/local/etc/haproxy.cfg.erb
 
-EXPOSE 5566 1936
+EXPOSE 5566 1936 5577
 
 CMD /usr/local/bin/start.rb

@@ -211,7 +211,7 @@ module Service
     end
 
     def add_backend(backend)
-      @backends << {:name => 'tor', :addr => '127.0.0.1', :port => backend.port}
+      @backends << {:name => 'tor', :addr => '127.0.0.1', :port => backend.port, :tor_port => backend.tor_port}
     end
 
     private
