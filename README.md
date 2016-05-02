@@ -17,13 +17,13 @@ Usage
 
 ```bash
 # build docker container
-docker build -t mattes/rotating-proxy:latest .
+docker build -t urashidmalik/rotating-tor:latest .
 
 # ... or pull docker container
-docker pull mattes/rotating-proxy:latest
+docker pull urashidmalik/rotating-tor:latest
 
 # start docker container
-docker run -d -p 5566:5566 -p 1936:1936 --env tors=25 mattes/rotating-proxy
+docker run -d -p 5566:5566 -p 1936:1936 --env tors=25 urashidmalik/rotating-tor
 
 # test with ...
 curl --proxy 127.0.0.1:5566 http://echoip.com
