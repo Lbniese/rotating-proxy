@@ -30,7 +30,7 @@ curl --proxy 127.0.0.1:5566 http://echoip.com
 curl --proxy 127.0.0.1:5566 http://header.jsontest.com
 
 # test SOCK5
-curl --proxy 127.0.0.1:5577 http://echoip.com
+curl --socks5 127.0.0.1:5577 http://echoip.com
 
 # monitor
 http://127.0.0.1:1936/haproxy?stats
