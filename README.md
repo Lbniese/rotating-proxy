@@ -23,7 +23,7 @@ docker build -t urashidmalik/rotating-tor:latest .
 docker pull urashidmalik/rotating-tor:latest
 
 # start docker container
-docker run -d -p 5566:5566 -p 1936:1936 --env tors=25 urashidmalik/rotating-tor
+docker run -d -p 5566:5566 -p 5577:5577 -p 1936:1936 --env tors=25 urashidmalik/rotating-tor
 
 # test with ...
 curl --proxy 127.0.0.1:5566 http://echoip.com
