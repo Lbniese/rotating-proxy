@@ -89,14 +89,26 @@ module Service
 
     def start
       super
-      self.class.fire_and_forget(executable,
-        "--SocksPort #{port}",
-        "--NewCircuitPeriod 120",
-        "--DataDirectory #{data_directory}",
-        "--PidFile #{pid_file}",
-        "--Log \"warn syslog\"",
-        '--RunAsDaemon 1',
-        "| logger -t 'tor' 2>&1")
+      if ENV["country"].nil?
+        self.class.fire_and_forget(executable,
+          "--SocksPort #{port}",
+          "--NewCircuitPeriod 120",
+          "--DataDirectory #{data_directory}",
+          "--PidFile #{pid_file}",
+          "--Log \"warn syslog\"",
+          '--RunAsDaemon 1',
+          "| logger -t 'tor' 2>&1")
+      else
+        self.class.fire_and_forget(executable,
+          "--SocksPort #{port}",
+          "--NewCircuitPeriod 120",
+          "--DataDirectory #{data_directory}",
+          "--PidFile #{pid_file}",
+          "--Log \"warn syslog\"",
+          '--RunAsDaemon 1',
+          "--ExitNodes {#{ENV["country"]}}",
+          "| logger -t 'tor' 2>&1")
+      end
     end
   end
 

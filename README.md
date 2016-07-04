@@ -25,12 +25,18 @@ docker pull urashidmalik/rotating-tor:latest
 # start docker container
 docker run -d -p 5566:5566 -p 5577:5577 -p 1936:1936 --env tors=25 urashidmalik/rotating-tor
 
+# start docker container exit from particular country
+docker run -d -p 5566:5566 -p 5577:5577 -p 1936:1936 --env tors=10 --env country=us urashidmalik/rotating-tor
+
+
 # test with ...
 curl --proxy 127.0.0.1:5566 http://echoip.com
 curl --proxy 127.0.0.1:5566 http://header.jsontest.com
+curl --proxy 127.0.0.1:5566 http://ifconfig.co/json
 
 # test SOCK5
 curl --socks5 127.0.0.1:5577 http://echoip.com
+
 
 # monitor
 http://127.0.0.1:1936/haproxy?stats
